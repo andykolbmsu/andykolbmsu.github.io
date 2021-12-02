@@ -2,14 +2,14 @@
 <!--    andykolbmsu.github.io   -->
 <!--    The Great Race          -->
 <!--    index.html              -->
-<!--    11/20/2021              -->
+<!--    12/01/2021              -->
 <!DOCTYPE html>
 <html lang="en-US">
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>The Great Race</title>
+        <title>The Great Race : X-Men Edition</title>
 
         <link href="./css/style.css" rel="stylesheet" type="text/css" media="all">
         <script src="./js/script.js" defer></script>
@@ -17,170 +17,41 @@
     </head>
     <body>
 
+        <div id="background">
 
-<style>
+            <div id="startContainer">
 
-* {
-    margin: 0;
-    padding: 0;
-}
-#background {
-    background-color: skyblue;
-    /* background: url('./images/bg/2.png');
-    background-size: cover; */
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-}
+                <!-- Title and logo -->
+                <div id="titleContainer">
+                    <div id="greatRace" class="titleText">The Great Race:</div>
+                    <img id="xmenLogo" src="./images/xmen_logo.png" alt="X-Men">
+                    <div id="edition" class="titleText">Edition</div>
+                </div>
+                
+                <!-- Large character images -->
+                <img id="xmenHero" src="./images/xmen_hero.png" alt="The X-Men">
+                <img id="profxHero" src="./images/professorx_hero.png" alt="Professor X">
 
-.character {
-    position: absolute;
-    transition: ease 1s left;
-    transform-origin: top left;
-    transform: scale(1.5);
-    top: 0px;
-    left: 50px;
-}
+            </div>
 
-#button {
-    background-color: green;
-    width: 50px;
-    height: 50px;
-}
+            <!-- Winner container - hidden until game end -->
+            <div id="winnerContainer">
+                <div id="winner">
+                    <div id="winnerText">Winner!</div>
+                    <div id="winnerCard"></div>
+                </div>
+            </div>
 
-#wolverine {
+            <!-- Start button -->
+            <!-- Not a standard stop light, but I wanted it to go with the theme of the game -->
+            <!-- It does change from red to green once pressed -->
+            <div id="button" class="buttonStop" onclick="startRace()"></div>
 
-}
+            <!-- Professor X character -->
+            <img id="professorx" src="./images/professor-x.png" alt="Professor X">
 
-</style>
-
-<div id="background">
-
-    <div id="button" onclick="startRace()"></div>
-
-
-
-</div>
-
-
-
-<script>
-
-var characters = ['psylocke','cyclops','gambit','beast','wolverine'];
-
-shuffle(characters);
-
-function shuffle(arr) {
-  arr.sort(() => Math.random() - 0.5);
-}
-
-window.onload = function() {
-    initialize();
-};
-
-
-// var intervalID = setInterval(myCallback, 1000, 'Parameter 1', 'Parameter 2');
-
-var interval;
-var second = 0;
-
-
-function startRace() {
-    interval = setInterval(run, 500);
-}
-
-function run() {
-    var arr = document.getElementsByClassName("character");
-    for(var i=0; i<arr.length; i++) {
-        var e = arr[i];
-        var p = e.offsetLeft;
-        p += getRandMove();
-        e.style.left = p + "px";
-
-        e.src = './images/' + e.id + '_walk.gif';
-    };
-
-    second++;
-    if(second >= 10) {
-        clearInterval(interval);
-        endRace();
-    }
-
-}
-
-function endRace() {
-    var arr = document.getElementsByClassName("character");
-    for(var i=0; i<arr.length; i++) {
-        var e = arr[i];
-        e.src = './images/' + e.id + '_idle.gif';
-    };
-}
-
-
-
-function initialize() {
-    var bg = document.getElementById("background");
-    var vertPos = 0;
-
-    for(var i=0; i < characters.length; i++) {
-        var c = characters[i];
-        bg.innerHTML += '<img id="'+c+'" class="character" src="./images/'+c+'_idle.gif">';
-        // bg.innerHTML += '<img id="'+c+'" class="character" src="./images/'+c+'_walk.gif">';
-
-    }
-
-
-    var cImages = document.getElementsByClassName("character");
-    for(var i=0; i<cImages.length; i++) {
-        var e = cImages[i];
-        var h = e.naturalHeight * 1.5;
-        console.log(h);
-
-        var t = e.offsetTop;
-        var add = 100 - h;
-
-        vertPos += 100;
-
-        var newTop = t + add + vertPos;
-        e.style.top = newTop + "px";
-
-
-
-        // console.log( cImages[i].clientTop );
-        // cImages[i].addEventListener("click", function() {});
-    };
-
-
-
-}
-
-
-function char(e) {
-    var w = e.naturalWidth;
-    var h = e.naturalHeight * 2;
-    var t = e.offsetTop;
-    var add = 100 - h;
-
-    var newTop = t + add;
-    // e.style.top = newTop + "px";
-
-    console.log(h);
-}
-
-
-function getRandMove() {
-    // Returns range 20 to 50
-    var n = 20 + Math.floor(Math.random()  * 30);
-    return n;
-}
-
-
-
-</script>
-
-
+        </div>
 
     </body>
+
 </html>

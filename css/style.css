@@ -1,0 +1,179 @@
+/*      Andy Kolb                */
+/*      andykolbmsu.github.io    */
+/*      The Great Race           */
+/*      style.css                */
+/*      12/01/2021               */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#background {
+    background-color: skyblue;
+    background: url('../images/city_bg.png');
+    background-size: cover;
+    background-position-x: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.character {
+    position: absolute;
+    transition: ease 1s left;
+    transform-origin: bottom left;
+    transform: scale(1.5);
+    bottom: 20px;
+    left: 50px;
+    z-index: 1;
+}
+
+#professorx {
+    position: absolute;
+    transform-origin: bottom left;
+    transform: scale(1.5);
+    bottom: 40px;
+    right: 50px;
+    z-index: 1;
+}
+
+
+/* Start button */
+
+#button {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    z-index: 101;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: all 500ms ease-in;
+}
+
+.buttonStop {
+    margin: 280px auto;
+    background-image: url('../images/xButtonStop.png');
+    animation-name: buttonScale;
+    animation-duration: 1000ms;
+    animation-direction:alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    transition: ease-in-out;
+}
+.buttonStart {
+    margin: 60px auto;
+    background-image: url('../images/xButtonStart.png');
+    animation-name: none;
+}
+
+@keyframes buttonScale {
+    from { transform: scale(1.0); }
+    to { transform: scale(1.2); }
+}
+
+
+/* Start screen */
+
+#startContainer {
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000000cc;
+    z-index: 100;
+    display: none;
+}
+
+#titleContainer {
+    position:absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.titleText {
+    color:#fff;
+}
+#greatRace {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+#edition {
+    font-size: 24px;
+    position: absolute;
+    text-align: right;
+    right: 0;
+    bottom:10px;
+}
+
+#xmenLogo {
+    width: 300px;
+}
+
+#xmenHero {
+    position:absolute;
+    left:20px;
+    bottom:0;
+    transform:scale(2.0);
+    transform-origin: bottom left;
+}
+#profxHero {
+    position:absolute;
+    right:20px;
+    bottom:0;
+    transform:scale(2.0);
+    transform-origin: bottom right;
+}
+
+@media (max-width: 752px) {
+    #xmenHero,#profxHero {
+        transform:scale(1.4);
+    }
+}
+@media (max-width: 580px) {
+    #xmenHero,#profxHero {
+        transform:scale(1.0);
+    }
+}
+
+
+/* Winner screen */
+
+#winnerContainer {
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000000cc;
+    z-index: 100;
+    text-align: center;
+    display: none;
+}
+#winner {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+#winnerText {
+    color: #fff;
+    font-size: 36px;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+#winner img {
+    width: 150px;
+}
