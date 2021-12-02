@@ -182,6 +182,9 @@ function resetGame() {
     var winnerCard = document.getElementById("winnerCard");
     winnerCard.innerHTML = "";
 
+    // Reset winner object
+    winnerObj = {name:'',px:0};
+
     // Hide winner screen
     document.getElementById("winnerContainer").style.display = "none";
 
